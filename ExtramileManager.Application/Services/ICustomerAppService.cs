@@ -12,6 +12,7 @@ namespace ExtramileManager.Services
     {
         
         List<Customer> GetCustomers(Customer input);
+        List<Customer> GetProviders(Customer input);
         Customer GetCustomer(Customer input);
         
         bool SaveCustomer(Customer input);

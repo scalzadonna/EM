@@ -1,5 +1,5 @@
-﻿<div class="panel panel-default" ng-controller="sts.controllers.views.customer.list as vm">
-    <div class="text-center" id="title"><h2><span class="glyphicon glyphicon-user"></span>&nbsp;Clientes/Proveedores</h2></div>
+﻿<div class="panel panel-default" ng-controller="sts.controllers.views.clientes.list as vm">
+    <div class="text-center" id="title"><h2><span class="glyphicon glyphicon-user"></span>&nbsp;Proveedores</h2></div>
     
     <div class="panel-heading" style="position: relative;">
         
@@ -18,10 +18,11 @@
 
             <!-- Customer state combobox -->
             <div class="col-xs-offset-4 col-xs-2 text-right">
-                <select ng-model="vm.selectedCustomerType" class="form-control">
+                <select ng-model="vm.selectedCustomerStatus" class="form-control">
                     <option value="0">Todos</option>
-                    <option value="1">Clientes</option>
-                    <option value="2">Proveedores</option>
+                    <option value="1">Activos</option>
+                    <option value="2">Suspendidos</option>
+                    <option value="3">Eliminados</option>
                 </select>
             </div>
         </div>
@@ -30,12 +31,12 @@
         <div class="row">
             <div class="alert alert-info alert-dismissible" role="alert" ng-show="vm.customerCreated">
                 <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <strong>Cliente creado!</strong>
+                <strong>Proveedor creado!</strong>
             </div>
 
             <div class="alert alert-info alert-dismissible" role="alert" ng-show="vm.customerUpdated">
                 <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <strong>Cliente actualizado!</strong>
+                <strong>Proveedor actualizado!</strong>
             </div>
 
         </div>
@@ -51,14 +52,15 @@
         <div class="panel-body">
             <form class="form-horizontal">
                 <input type="hidden" ng-model="vm.form.id">
+                <input type="hidden" ng-model="vm.customerType" value="1">
                 <input type="hidden" ng-model="vm.form.estado">
                 <div class="form-group">
                     <div class="col-sm-2">
                         <label class="control-label">Tipo:</label>
                         <br />
                         <select ng-model="vm.form.tipo" ng-disabled="vm.show" class="form-control">
-                            <option value="1" selected="true">Cliente</option>
-                            <option value="2">Proveedor</option>    
+                            <option value="1">Cliente</option>
+                            <option value="2" selected="true">Proveedor</option>    
                         </select>
                         
                     </div>

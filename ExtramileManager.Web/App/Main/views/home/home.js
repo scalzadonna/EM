@@ -7,7 +7,7 @@
         }
     ]);
 
-    app.controller('sts.controllers.views.customer.list', [
+    app.controller('sts.controllers.views.clientes.list', [
         '$scope', 'abp.services.extramile.customer',
         function ($scope, customerService) {
             var vm = this;
@@ -27,7 +27,8 @@
             vm.customerCreated = false;
             vm.customerUpdated = false;
 
-            vm.selectedCustomerType = 1;
+            vm.selectedCustomerStatus = 1;
+
 
             vm.customers = {};
 
@@ -55,20 +56,7 @@
                     $.blockUI();
                     vm.form = angular.copy(customer);
                     $.unblockUI();
-                    //customerService.getCustomer({ "Id": customerId })
-                    //.success(function (data) {
-                        
-                    //    vm.form = data;
-                    //    $.unblockUI();
-                    //})
-                    //.error(function(date){
-                    //    vm.form={};
-                    //    alert('something failed');
-                    //    $.unblockUI();
-                    //});
                     
-                    
-
                 }
             }
 
@@ -77,7 +65,7 @@
                 customer.estado = 3;
                 customerService.updateCustomer(customer)
                 .success(function (data) {
-                    vm.refreshCustomers(vm.selectedCustomerType);
+                    vm.refreshCustomers(vm.selectedCustomerStatus);
                     $.unblockUI();
                 })
                 
@@ -102,7 +90,7 @@
                 customerService.saveCustomer(vm.form)
                 .success(function (data) {
                     vm.formCollapsed = true;
-                    vm.refreshCustomers(vm.selectedCustomerType);
+                    vm.refreshCustomers(vm.selectedCustomerStatus);
                     vm.customerCreated = true;
                     $.unblockUI();
                 })
@@ -118,7 +106,7 @@
                 customerService.updateCustomer(vm.form)
                 .success(function (data) {
                     vm.formCollapsed = true;
-                    vm.refreshCustomers(vm.selectedCustomerType);
+                    vm.refreshCustomers(vm.selectedCustomerStatus);
                     vm.customerUpdated = true;
                     $.unblockUI();
                 })
@@ -131,12 +119,12 @@
             }
 
 
-            $scope.$watch('vm.selectedCustomerType', function (value) {
+            $scope.$watch('vm.selectedCustomerStatus', function (value) {
                 vm.refreshCustomers(value);
             });
 
             vm.refreshCustomers = function (value) {
-                customerService.getCustomers({"tipo":value})
+                customerService.getCustomers({ "estado": value })
                     .success(function (data) {
                         vm.customers = data;
                     });

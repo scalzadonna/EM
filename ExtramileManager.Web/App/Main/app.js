@@ -24,11 +24,19 @@
                  }
              },
              {
-                 url: '/list', //default
+                 url: '/clientes', //default
                  config: {
-                     templateUrl: '/App/Main/views/customer/list.cshtml',
+                     templateUrl: '/App/Main/views/clientes/list.cshtml',
                      menuText: localize('Clientes'),
-                     menuItem: 'CustomerList'
+                     menuItem: 'Clientes'
+                 }
+             },
+             {
+                 url: '/proveedores', //default
+                 config: {
+                     templateUrl: '/App/Main/views/proveedores/list.cshtml',
+                     menuText: localize('Proveedores'),
+                     menuItem: 'Proveedores'
                  }
              },
             {

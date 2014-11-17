@@ -1,0 +1,183 @@
+﻿<div class="panel panel-default" ng-controller="sts.controllers.views.clientes.list as vm">
+    <div class="text-center" id="title"><h2><span class="glyphicon glyphicon-user"></span>&nbsp;Clientes</h2></div>
+    
+    <div class="panel-heading" style="position: relative;">
+        
+        <div class="row">
+
+            
+            <!-- Title -->
+            <h3 class="panel-title col-xs-6">
+                <button class="btn btn-success" ng-click="vm.createCustomer()">
+                    <span class="glyphicon glyphicon-plus"></span>Nuevo
+                </button>
+
+            </h3>
+
+            
+
+            <!-- Customer state combobox -->
+            <div class="col-xs-offset-4 col-xs-2 text-right">
+                <select ng-model="vm.selectedCustomerStatus" class="form-control">
+                    <option value="0">Todos</option>
+                    <option value="1">Activos</option>
+                    <option value="2">Suspendidos</option>
+                    <option value="3">Eliminados</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="alert alert-info alert-dismissible" role="alert" ng-show="vm.customerCreated">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <strong>Cliente creado!</strong>
+            </div>
+
+            <div class="alert alert-info alert-dismissible" role="alert" ng-show="vm.customerUpdated">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <strong>Cliente actualizado!</strong>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="panel panel-default col-sm-12" collapse="vm.formCollapsed">
+        
+        <div class="panel-heading">
+            <span ng-show="vm.show">Ver cliente:</span>
+            <span ng-show="vm.create && !vm.show">Crear cliente:</span>
+            <span ng-show="!vm.create && !vm.show">Editar cliente:</span>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal">
+                <input type="hidden" ng-model="vm.form.id">
+                <input type="hidden" ng-model="vm.customerType" value="2">
+                <input type="hidden" ng-model="vm.form.estado">
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label class="control-label">Tipo:</label>
+                        <br />
+                        <select ng-model="vm.form.tipo" ng-disabled="vm.show" class="form-control">
+                            <option value="1" selected="true">Cliente</option>
+                            <option value="2">Proveedor</option>    
+                        </select>
+                        
+                    </div>
+
+                    <div class="col-sm-offset-1 col-sm-3">
+                        <label class="control-label">Nombre:</label>
+                        <br />
+                        <input class="form-control" type="text" ng-model="vm.form.nombre" ng-disabled="vm.show" placeholder="Nombre">
+                    </div>
+
+                    <div class="col-sm-offset-1 col-sm-4">
+                        <label class="control-label">Direccion:</label>
+                        <br />
+                        <input class="form-control" type="text" ng-model="vm.form.direccion" ng-disabled="vm.show" placeholder="Direccion">
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label class="control-label">Provincia:</label>
+                        <br />
+                        <input class="form-control" type="text" ng-model="vm.form.provincia" ng-disabled="vm.show" placeholder="">
+                    </div>
+
+                    <div class="col-sm-offset-1 col-sm-2">
+                        <label class="control-label">Pais:</label>
+                        <br />
+                        <input class="form-control" type="text" ng-model="vm.form.pais" ng-disabled="vm.show" placeholder="">
+                    </div>
+
+                    <div class="col-sm-offset-1 col-sm-2">
+                        <label class="control-label">CUIT:</label>
+                        <br />
+                        <input class="form-control" type="text" ng-model="vm.form.cuit" ng-disabled="vm.show" placeholder="">
+                    </div>
+
+                    <div class="col-sm-offset-1 col-sm-2">
+                        <label class="control-label">Ingresos Brutos:</label>
+                        <br />
+                        <input class ="form-control" type="text" ng-model="vm.form.iBrutos" ng-disabled="vm.show" placeholder="">
+</div>
+                </div>
+                <div class="form-group">
+                    
+                    <div class="col-sm-1">
+                        <button class="btn btn-success" ng-show="vm.create" ng-click="vm.saveCustomer()">
+                            Crear 
+                        </button>
+                        <button class="btn btn-success" ng-show="!vm.create && !vm.show" ng-click="vm.updateCustomer()">
+                            Actualizar
+                        </button>
+                        <button class="btn btn-success" ng-show="vm.show" ng-click="vm.editCustomer(vm.form)">
+                            Editar
+                        </button>
+
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-danger" ng-show="!vm.show" ng-click="vm.formCollapsed=true">
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+            </form>
+            </div>
+
+        </div>
+
+            <!-- Customers table-->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        
+                        <th>Tipo</th>
+                        <th>Nombre</th>
+                        <th>Pais</th>
+                        <th>Estado</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="customer in vm.customers">
+                        
+                        <td>{{ customer.tipo }}</td>
+                        <td>{{ customer.nombre }}</td>
+                        <td>{{ customer.pais }}</td>
+                        <td>{{ customer.estado }}</td>
+                        <td>
+                            <button class="btn" ng-click="vm.viewCustomer(customer)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+
+                            <button class="btn" ng-click="vm.editCustomer(customer)">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+
+                            <button class="btn" ng-click="vm.deleteCustomer(customer)">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Customer list
+            <ul class="list-group" ng-repeat="customer in vm.customers">
+                <div class="list-group-item">
+                    <span class="glyphicon glyphicon-ok"> </span>
+                    <span>{{customer.nombre}}</span>
+                    <br />
+                    <span>{{customer.direccion}}</span>
+                </div>
+            </ul>
+            -->
+            <h4 class="panel-title col-xs-6">
+                Total:  <span>{{vm.getCustomerCountText()}}</span>
+            </h4>
+
+        </div>
+
+

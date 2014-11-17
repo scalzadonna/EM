@@ -21,12 +21,20 @@ namespace ExtramileManager.Services
             _customerRepository = customerRepository;
         }
 
+        public List<Customer> GetProviders(Customer input)
+        {
+            var results = _customerRepository.GetAllList().FindAll(x => x.Tipo.Equals(CustomerType.Proveedor));
+            
+            if (input != null && input.Estado > 0)
+                results = results.FindAll(x => x.Estado.Equals(input.Estado));
+            return results;
+        }
         public List<Customer> GetCustomers(Customer input)
         {
-            var results = _customerRepository.GetAllList().FindAll(x => x.Estado.Equals(CustomerStatus.Activo));
+            var results = _customerRepository.GetAllList().FindAll(x => x.Tipo.Equals(CustomerType.Cliente));
             
-            if (input != null && input.Tipo > 0)
-                results = results.FindAll(x => x.Tipo.Equals(input.Tipo));
+            if (input != null && input.Estado > 0)
+                results = results.FindAll(x => x.Estado.Equals(input.Estado));
             return results;
         }
 
