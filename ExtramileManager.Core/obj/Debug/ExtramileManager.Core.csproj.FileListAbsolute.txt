@@ -13,3 +13,4 @@ C:\DEV\workspace\ExtramileManager\ExtramileManager.Core\bin\Debug\Castle.Windsor
 C:\DEV\workspace\ExtramileManager\ExtramileManager.Core\bin\Debug\System.Collections.Immutable.xml
 C:\DEV\workspace\ExtramileManager\ExtramileManager.Core\obj\Debug\ExtramileManager.Core.dll
 C:\DEV\workspace\ExtramileManager\ExtramileManager.Core\obj\Debug\ExtramileManager.Core.pdb
+C:\DEV\workspace\ExtramileManager\ExtramileManager.Core\obj\Debug\ExtramileManager.Core.csprojResolveAssemblyReference.cache

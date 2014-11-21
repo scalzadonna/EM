@@ -1,4 +1,4 @@
-﻿<div class="panel panel-default" ng-controller="sts.controllers.views.clientes.list as vm">
+﻿<div class="panel panel-default" ng-controller="sts.controllers.views.proveedores.list as vm">
     <div class="text-center" id="title"><h2><span class="glyphicon glyphicon-user"></span>&nbsp;Proveedores</h2></div>
     
     <div class="panel-heading" style="position: relative;">
@@ -45,9 +45,9 @@
     <div class="panel panel-default col-sm-12" collapse="vm.formCollapsed">
         
         <div class="panel-heading">
-            <span ng-show="vm.show">Ver cliente:</span>
-            <span ng-show="vm.create && !vm.show">Crear cliente:</span>
-            <span ng-show="!vm.create && !vm.show">Editar cliente:</span>
+            <span ng-show="vm.show">Ver proveedor:</span>
+            <span ng-show="vm.create && !vm.show">Crear proveedor:</span>
+            <span ng-show="!vm.create && !vm.show">Editar proveedor:</span>
         </div>
         <div class="panel-body">
             <form class="form-horizontal">
@@ -59,8 +59,7 @@
                         <label class="control-label">Tipo:</label>
                         <br />
                         <select ng-model="vm.form.tipo" ng-disabled="vm.show" class="form-control">
-                            <option value="1">Cliente</option>
-                            <option value="2" selected="true">Proveedor</option>    
+                            <option value="2">Proveedor</option>    
                         </select>
                         
                     </div>

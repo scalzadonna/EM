@@ -1,29 +1,22 @@
-﻿(function() {
+﻿(function () {
     var app = angular.module('app');
 
-    app.controller('app.controllers.views.home', [
-        '$scope', function($scope) {
-            //...
-        }
-    ]);
-
-    app.controller('sts.controllers.views.clientes.list', [
+    app.controller('sts.controllers.views.proveedores.list', [
         '$scope', 'abp.services.extramile.customer',
         function ($scope, customerService) {
             var vm = this;
 
             vm.localize = abp.localization.getSource('ExtramileManager');
 
-            
-
             $scope.selectedCustomerState = 0;
 
             vm.formCollapsed = true;
             vm.form = {};
-            
+
+
             vm.create = false;
             vm.show = false;
-            
+
             vm.customerCreated = false;
             vm.customerUpdated = false;
 
@@ -33,7 +26,7 @@
             vm.customers = {};
 
             vm.viewCustomer = function (customer) {
-                
+
                 if (vm.show || vm.formCollapsed)
                     vm.formCollapsed = !vm.formCollapsed;
                 vm.show = true;
@@ -44,19 +37,19 @@
             }
 
             vm.editCustomer = function (customer) {
-                
+
                 if (vm.create || vm.show) {
                     vm.formCollapsed = false;
                     vm.create = false;
                 } else
                     vm.formCollapsed = !vm.formCollapsed;
-                
+
                 vm.show = false;
                 if (!vm.formCollapsed) {
                     $.blockUI();
                     vm.form = angular.copy(customer);
                     $.unblockUI();
-                    
+
                 }
             }
 
@@ -68,8 +61,8 @@
                     vm.refreshCustomers(vm.selectedCustomerStatus);
                     $.unblockUI();
                 })
-                
-                
+
+
             }
 
             vm.createCustomer = function () {
@@ -82,7 +75,7 @@
 
 
                 if (!vm.formCollapsed) {
-                    vm.form = {"tipo":1};
+                    vm.form = { "tipo": 1 };
                 }
             }
 
@@ -94,8 +87,8 @@
                     vm.customerCreated = true;
                     $.unblockUI();
                 })
-                .error(function(date){
-                    vm.form={};
+                .error(function (date) {
+                    vm.form = {};
                     alert('something failed');
                     $.unblockUI();
                 });
@@ -124,7 +117,7 @@
             });
 
             vm.refreshCustomers = function (value) {
-                customerService.getCustomers({ "estado": value })
+                customerService.getProviders({ "estado": value })
                     .success(function (data) {
                         vm.customers = data;
                     });

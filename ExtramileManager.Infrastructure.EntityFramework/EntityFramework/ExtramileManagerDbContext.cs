@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using Abp.Domain.Repositories.EntityFramework;
 using ExtramileManager.Customers;
+using ExtramileManager.Cotizaciones;
 
 namespace ExtramileManager.EntityFramework
 {
@@ -8,6 +9,7 @@ namespace ExtramileManager.EntityFramework
     {
         //TODO: Define an IDbSet for each Entity...
         public virtual IDbSet<Customer> Customers { get; set; }
+        public virtual IDbSet<Cotizacion> Cotizaciones { get; set; }
 
 
         //public virtual IDbSet<Person> People { get; set; } //Sample
@@ -24,6 +26,7 @@ namespace ExtramileManager.EntityFramework
 
             //TODO: Make additional model setup...
             modelBuilder.Entity<Customer>().ToTable("Customers");
+            modelBuilder.Entity<Cotizacion>().ToTable("Cotizaciones");
             //modelBuilder.Entity<Person>().ToTable("TsPeople"); //Sample
         }
     }

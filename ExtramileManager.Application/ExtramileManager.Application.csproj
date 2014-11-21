@@ -76,7 +76,9 @@
   <ItemGroup>
     <Compile Include="ExtramileManagerApplicationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CotizacionAppService.cs" />
     <Compile Include="Services\CustomerAppService.cs" />
+    <Compile Include="Services\ICotizacionAppService.cs" />
     <Compile Include="Services\ICustomerAppService.cs" />
     <Compile Include="Services\ITaskAppService.cs" />
     <Compile Include="Services\TaskAppService.cs" />

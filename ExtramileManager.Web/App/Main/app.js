@@ -17,6 +17,7 @@
     app.constant('routes', [
              {
                  url: '/', //default
+                 show: true,
                  config: {
                      templateUrl: '/App/Main/views/home/home.cshtml',
                      menuText: localize('Home'),
@@ -25,6 +26,7 @@
              },
              {
                  url: '/clientes', //default
+                 show: true,
                  config: {
                      templateUrl: '/App/Main/views/clientes/list.cshtml',
                      menuText: localize('Clientes'),
@@ -33,6 +35,7 @@
              },
              {
                  url: '/proveedores', //default
+                 show: true,
                  config: {
                      templateUrl: '/App/Main/views/proveedores/list.cshtml',
                      menuText: localize('Proveedores'),
@@ -41,10 +44,30 @@
              },
             {
                 url: '/about',
+                show: false,
                 config: {
                     templateUrl: '/App/Main/views/about/about.cshtml',
                     menuText: localize('Acerca'),
                     menuItem: 'About'
+                }
+            },
+            {
+                url: '/config',
+                show: false,
+                config: {
+                    templateUrl: '/App/Main/views/config.cshtml',
+                    menuText: localize('Config'),
+                    menuItem: 'Config'
+                }
+            }
+            ,
+            {
+                url: '/login',
+                show: false,
+                config: {
+                    templateUrl: '/App/Main/views/login.cshtml',
+                    menuText: localize('Login'),
+                    menuItem: 'Login'
                 }
             }
         ]);

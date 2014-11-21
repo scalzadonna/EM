@@ -41,6 +41,9 @@ namespace ExtramileManager
             DynamicApiControllerBuilder
                 .For<ITaskAppService>("extramile/task")
                 .Build();
+            DynamicApiControllerBuilder
+                .For<ICotizacionAppService>("extramile/cotizacion")
+                .Build();
 
         }
     }

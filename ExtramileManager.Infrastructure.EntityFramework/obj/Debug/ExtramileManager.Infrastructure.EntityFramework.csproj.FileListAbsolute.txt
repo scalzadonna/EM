@@ -24,3 +24,4 @@ C:\DEV\workspace\ExtramileManager\ExtramileManager.Infrastructure.EntityFramewor
 C:\DEV\workspace\ExtramileManager\ExtramileManager.Infrastructure.EntityFramework\obj\Debug\ExtramileManager.Infrastructure.EntityFramework.csproj.GenerateResource.Cache
 C:\DEV\workspace\ExtramileManager\ExtramileManager.Infrastructure.EntityFramework\obj\Debug\ExtramileManager.Infrastructure.EntityFramework.dll
 C:\DEV\workspace\ExtramileManager\ExtramileManager.Infrastructure.EntityFramework\obj\Debug\ExtramileManager.Infrastructure.EntityFramework.pdb
+C:\DEV\workspace\ExtramileManager\ExtramileManager.Infrastructure.EntityFramework\obj\Debug\ExtramileManager.Migrations.Cotizaciones.resources

@@ -62,11 +62,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cotizaciones\Cotizacion.cs" />
     <Compile Include="Customers\Customer.cs" />
     <Compile Include="Customers\CustomerType.cs" />
     <Compile Include="Customers\CustomerStatus.cs" />
     <Compile Include="ExtramileManagerCoreModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ICotizacionRepository.cs" />
     <Compile Include="Repositories\ICustomerRepository.cs" />
   </ItemGroup>
   <ItemGroup>

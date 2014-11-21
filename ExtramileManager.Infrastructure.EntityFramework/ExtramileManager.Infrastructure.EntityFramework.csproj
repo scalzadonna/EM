@@ -89,12 +89,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\ExtramileManagerDbContext.cs" />
+    <Compile Include="EntityFramework\Repositories\CotizacionRepository.cs" />
     <Compile Include="EntityFramework\Repositories\CustomerRepository.cs" />
     <Compile Include="EntityFramework\Repositories\ExtramileManagerRepositoryBase.cs" />
     <Compile Include="ExtramileManagerDataModule.cs" />
     <Compile Include="Migrations\201410202136313_InitialCreate.cs" />
     <Compile Include="Migrations\201410202136313_InitialCreate.Designer.cs">
       <DependentUpon>201410202136313_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411210542570_Cotizaciones.cs" />
+    <Compile Include="Migrations\201411210542570_Cotizaciones.Designer.cs">
+      <DependentUpon>201411210542570_Cotizaciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,6 +120,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201410202136313_InitialCreate.resx">
       <DependentUpon>201410202136313_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411210542570_Cotizaciones.resx">
+      <DependentUpon>201411210542570_Cotizaciones.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
